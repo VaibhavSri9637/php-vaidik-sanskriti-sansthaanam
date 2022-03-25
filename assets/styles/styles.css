@@ -1,0 +1,340 @@
+:root {
+  --primary-color: #333;
+  --secondary-color: #0896fe;
+}
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  clear: both;
+}
+body * {
+  box-sizing: inherit;
+}
+.muli-regular {
+  font-family: muli, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.muli-bold {
+  font-family: muli, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.lato-regular {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.lato-bold {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.header {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgb(0 0 0 /25%);
+  z-index: 300;
+  position: fixed;
+  top: 0;
+}
+.header-menu-open {
+  height: auto;
+}
+.sub-header {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  height: 100%;
+  padding: 25px 30px;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.header-animation {
+  padding: 4px 30px;
+}
+
+.header-logo-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--primary-color);
+}
+.header-logo-container > h1 {
+  margin: 10px 0;
+}
+.header-menu-container {
+  font-size: 14px;
+  height: 100%;
+  margin: 0;
+  color: var(--primary-color);
+}
+.header-menu-container li {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  float: left;
+  padding: 0 15px;
+  cursor: pointer;
+  height: 100%;
+}
+.header-menu-container li:hover {
+  color: var(--secondary-color);
+  border-bottom: 2px solid var(--secondary-color);
+}
+.header-menu-container a {
+  height: 100%;
+}
+.mobile-menu-icon {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  cursor: pointer;
+}
+.mobile-menu-dropdown {
+  width: 100%;
+  padding: 0 20px;
+  background-color: white;
+  display: none;
+}
+.mobile-menu-list-container {
+  padding-left: 0;
+}
+.mobile-menu-list {
+  background-color: #eaeaea;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  padding: 0 10px;
+  margin: 5px 0;
+  list-style: none;
+  cursor: pointer;
+}
+.landing-background {
+  margin-top: 112px;
+  background-image: url("../images/background.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  box-shadow: 0 1px 2px rgb(0 0 0 /10%);
+}
+.landing-mainsection {
+  padding: 0 20px 0;
+  box-shadow: 0 1px 2px rgb(0 0 0 /10%);
+}
+.landing-mainsubsection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10% 0;
+  text-shadow: 0 2px 2px rgb(0 0 0 / 50%);
+  color: var(--primary-color);
+}
+.main-heading {
+  font-size: 40px;
+}
+.searchidioms {
+  height: 46px;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 6px 0 0 6px;
+  background-color: #f6f6f7;
+  outline: none;
+  border: 1px solid #acaeaf;
+  padding: 0 20px;
+  font-size: 16px;
+}
+.searchidioms:focus {
+  animation-name: searchidioms-animation;
+  animation-duration: 0.1s;
+  animation-fill-mode: forwards;
+}
+
+.search-idioms-button {
+  cursor: pointer;
+  height: 46px;
+  background-color: var(--secondary-color);
+  border-radius: 0 6px 6px 0;
+  border: none;
+  color: white;
+  padding: 0 20px;
+  font-size: 20px;
+  position: relative;
+}
+.container {
+  /* display:flex; */
+}
+.content-container {
+  /* max-width:1080px; */
+  margin: 0 auto;
+  padding: 2.5% 5% 2.5%;
+}
+.subsectionheading {
+  font-size: 30px;
+  text-align: center;
+}
+.maintext {
+  font-size: 16px;
+  color: var(--primary-color);
+  text-align: center;
+  line-height: 1.8;
+}
+.content-section {
+  padding: 20px;
+}
+.vision-section {
+  background-color: #f4f4f4;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 2.5%;
+}
+.vision-sub-section {
+  max-width: 960px;
+  margin: 0 auto;
+}
+.popular-idioms-box {
+  display: inline-block;
+  margin: 5px;
+  border: 1px solid var(--secondary-color);
+  padding: 5px 10px;
+  border-radius: 4px;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+.popular-idioms-box:hover {
+  animation-name: popular-idioms-box-animation;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+.footer {
+  background-color: #313539;
+  color: #acaeaf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 5%;
+}
+
+.pages-heading-container {
+  background-color: #f6f6f7;
+  margin-top: 112px;
+  height: 100px;
+  display: flex;
+  padding: 0 5%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pages-heading-container > h1 {
+  background-color: #f6f6f7;
+  font-size: 24px;
+}
+.pages-content-container {
+  background-color: white;
+  color: var(--primary-color);
+  font-size: 16px;
+  padding: 3% 5%;
+}
+.pages-content-container p {
+  line-height: 1.8;
+}
+/* Keyframes animation */
+@keyframes searchidioms-animation {
+  from {
+    background-color: #f6f6f7;
+  }
+  to {
+    background-color: white;
+  }
+}
+
+@keyframes popular-idioms-box-animation {
+  from {
+    background-color: white;
+  }
+  to {
+    background-color: var(--secondary-color);
+    color: white;
+  }
+}
+
+/* media css classes */
+
+@media all and (max-width: 1000px) {
+  .landing-mainsubsection {
+    padding: 6% 0;
+  }
+  .main-heading {
+    font-size: 30px;
+  }
+  .searchidioms {
+    max-width: 350px;
+  }
+}
+@media all and (max-width: 1200px) {
+  .landing-mainsubsection {
+    padding: 8% 0;
+  }
+}
+@media all and (max-width: 767px) {
+  .header-menu-container {
+    display: none;
+  }
+  .landing-background {
+    margin-top: 70px;
+    background-image: url("../images/background-small.png");
+  }
+  .landing-mainsubsection {
+    padding: 6% 0;
+  }
+  .pages-heading-container {
+    margin-top: 70px;
+  }
+}
+@media all and (max-width: 500px) {
+  .main-heading {
+    font-size: 24px;
+  }
+  .searchidioms {
+    max-width: 300px;
+    height: 36px;
+  }
+  .search-idioms-button {
+    height: 36px;
+    font-size: 16px;
+    padding: 0 15px;
+    top: -1px;
+  }
+  .header-logo-container > h1 {
+    font-size: 24px;
+  }
+  .landing-mainsubsection {
+    padding: 4% 0;
+  }
+}
+@media all and (max-width: 400px) {
+  .main-heading {
+    font-size: 20px;
+  }
+  .searchidioms {
+    max-width: 230px;
+  }
+  .search-idioms-button {
+    padding: 0 10px;
+  }
+}
+@media all and (min-width: 768px) {
+  .mobile-menu-icon {
+    display: none;
+  }
+}
