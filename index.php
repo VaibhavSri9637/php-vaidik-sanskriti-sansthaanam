@@ -1,3 +1,16 @@
+<?php
+$conn = mysqli_connect('localhost', 'root', 'nf16Mysql', 'vaidic_sanskriti_sansthaanam');
+if (!$conn) {
+    echo 'Connection error: ' . mysqli_connect_error();
+}
+
+$sqlallidioms = "SELECT english_muhavra,hindi_muhavra FROM idioms";
+$resultallidioms = mysqli_query($conn, $sqlallidioms);
+$allidioms = mysqli_fetch_all($resultallidioms, MYSQLI_ASSOC);
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,9 +29,12 @@
         <div class="landing-mainsection">
             <div class="landing-mainsubsection">
                 <h1 class="main-heading lato-bold">अपने प्रिय मुहावरों के अर्थ ढूंढें </h1>
-                <form style="display:block;">
-                    <input type="text" class="searchidioms lato-regular" name="search-idioms"><button type="submit" class="search-idioms-button"><i class="fa fa-search"></i></button>
+                <form method="POST" action="idioms-results.php" style="display:block;">
+                    <input type="text" onkeyup="changeidiom()" class="input-box searchidioms lato-regular" id="search-idioms" name="search-idioms"><button type="submit" name="submit" class="search-idioms-button"><i class="fa fa-search"></i></button>
                 </form>
+                <div class="idiomssuggestions" style="display:none">
+                    <ul class="search-suggestions lato-regular" id="search-suggestions"></ul>
+                </div>
             </div>
         </div>
     </div>
@@ -77,13 +93,11 @@
     <script>
         $(document).ready(function() {
             $("#mobile-menu-icon").click(function() {
-                console.log($(".mobile-menu-icon-bar"))
                 if ($(".mobile-menu-icon-bar").hasClass("fa-times")) {
                     $(".mobile-menu-icon-bar").removeClass("fa-times").addClass("fa-bars")
                     $("#mobile-menu-dropdown").slideUp(300)
                     $("#header").removeClass("header-menu-open");
                 } else if ($(".mobile-menu-icon-bar").hasClass("fa-bars")) {
-                    console.log("has bars")
                     $("#mobile-menu-dropdown").slideDown(300)
                     $("#header").addClass("header-menu-open");
                     $(".mobile-menu-icon-bar").removeClass("fa-bars").addClass("fa-times")
@@ -103,6 +117,52 @@
                 }
             });
         });
+    </script>
+    <script>
+        function changeidiom() {
+            var searchvalue = document.getElementById("search-idioms").value.trim();
+            if (searchvalue && searchvalue.length > 3) {
+                var allidioms = <?php echo json_encode($allidioms); ?>;
+                if ((searchvalue[0].charCodeAt(0) >= 65 && searchvalue[0].charCodeAt(0) <= 90) || (searchvalue[0].charCodeAt(0) >= 97 && searchvalue[0].charCodeAt(0) <= 122)) {
+                    allidioms = allidioms.map(i => {
+                        return i.english_muhavra
+                    });
+                } else {
+                    allidioms = allidioms.map(i => {
+                        return i.hindi_muhavra
+                    });
+                }
+                // console.log("allidioms", allidioms)
+                var allidiomsarray = [];
+                var re = new RegExp(searchvalue, "gi");
+                for (var i = 0; i < allidioms.length; i++) {
+                    var score = allidioms[i].match(re) ? allidioms[i].match(re).length : 0;
+                    if (score > 0) {
+                        allidiomsarray.push({
+                            idiom: allidioms[i],
+                            score: score
+                        });
+                    }
+                }
+                allidiomsarray = allidiomsarray.sort(function(a, b) {
+                    return (b.score - a.score);
+                }).slice(0, 10);
+                if (allidiomsarray.length > 0) {
+                    $(".idiomssuggestions").css("display", "block")
+                } else {
+                    $(".idiomssuggestions").css("display", "none")
+                }
+
+                var searchsuggestionshtml = ""
+                for (var i = 0; i < allidiomsarray.length; i++) {
+                    searchsuggestionshtml = searchsuggestionshtml + "<li>" + allidiomsarray[i].idiom + "</li>";
+                }
+                $("#search-suggestions").html(searchsuggestionshtml);
+            } else {
+                $(".idiomssuggestions").css("display", "none")
+                $("#search-suggestions").html("");
+            }
+        }
     </script>
 </body>
 

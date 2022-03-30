@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Contact us - वैदिक संस्कृति संस्थानं</title>
+    <title>Contribute - वैदिक संस्कृति संस्थानं</title>
     <?php include('../components/head.php') ?>
     <link rel="stylesheet" href="../assets/styles/styles.css" />
     <link rel="stylesheet" href="../assets/styles/toolsstyles.css" />
@@ -12,9 +12,7 @@
 <body>
     <?php include('../components/header.php') ?>
     <div class="pages-heading-container">
-        <h1 class="lato-bold">अपना मुहावरा साझा करें</h1>
-    </div>
-    <div class="pages-content-container lato-regular">
+        <h1 class="lato-bold">अपना योगदान दीजिए</h1>
         <div class="switch-container">
             <span class="switch-options lato-regular">English</span>
             <label class="switch">
@@ -23,32 +21,59 @@
             </label>
             <span class="switch-options lato-regular">हिंदी</span>
         </div>
-
+    </div>
+    <div class="pages-content-container lato-regular">
+        <p>
+            आप भी हमारे इस प्रयास में भागीदार बने और अपने मुहावरों को हमें भेजें। आवश्यकता पड़ने पर हम आपसे संपर्क भी कर सकते हैं।
+        </p>
+        <form style="display:block;">
+            <p class="lato-semi-bold" id="idiom-contribution">
+                अपना मुहावरा लिखें *<br />
+                <span class="lato-regular small-text">
+                    देवनागरी (हिन्दी) लिपि में या रोमन (अंग्रेजी) लिपि में
+                </span>
+            </p>
+            <input type="text" class="input-box lato-regular" name="search-idioms">
+            <p class="form-input-heading lato-semi-bold" id="name">
+                आपका नाम *
+            </p>
+            <input type="text" class="input-box lato-regular" required name="search-idioms"><br /><br />
+            <p class="form-input-heading lato-semi-bold" id="email">
+                आपका इ-मेल पता *
+            </p>
+            <input type="text" class="input-box lato-regular" required name="search-idioms"><br /><br />
+            <p class="form-input-heading lato-semi-bold" id="phone">
+                आपका फ़ोन नंबर
+            </p>
+            <input type="text" class="input-box lato-regular" name="search-idioms">
+            <input type="submit" class="submit-button lato-regular" value="मेरा सुझाव भेजें" id="submit" />
+        </form>
     </div>
     <script>
         $(document).ready(function() {
             $("#vision-switch").click(function() {
                 if ($("#vision-switch").is(':checked')) {
-                    $(".pages-content-container>p").html(`वैदिक संस्कृति संस्थानम का उद्देश्य हमारी मातृभूमि भारत की निस्वार्थ सेवा है। हमारे भारत की हर वस्तु और हर व्यक्ति हमारे लिए पूजनीय है और सबसे उत्तम पूजा
-            निस्वार्थ सेवा है। अभी तक इस संस्था ने गरीबों के बीच कोरोनामहामारी के कारण होने वाली भयावह मानवीय पीड़ा को कम करने के लिए थोड़ा सा योगदान दिया है। आगे यह संस्था बाल शिक्षा,स्वास्थ्य और संस्कृति की दिशाओं में अग्रसर होने के लिए प्रत्यनशील है।
-            <br />
-            यदि आप अपने निजी धन का कुछ अंश हमें दान देना चाहें तो कृपया हमसे संपर्क करें। वैदिक संस्कृति संस्थानम को दिया दान आयकर से मुक्त है। आप अपनी कंपनी के कॉर्पोरेट माध्यम से भी दान दे सकते हैं। यदि आप अन्य माध्यमों से दान करना चाहते हैं या कोई प्रश्न पूछना चाहते हैं,तो कृपया हमें ई-मेल करें।
-            <br />
-            आपके दान किए गए धन का प्रत्येक अंश समाज सेवा में लगता है। वैदिक संस्कृति संस्थानमके संस्थापक और अन्य कर्मचारी पूरी तरह से स्वयंसेवकों के रूप में काम करते हैं।
-            धन्यवाद!
-            <br /><br />
-            डॉ. प्रदीप गोयल<br />
-            संस्थाप,वैदिक संस्कृति संस्थानम<br />
-            founder@mantrayoga.org`)
+                    $(".pages-content-container>p").text("आप भी हमारे इस प्रयास में भागीदार बने और अपने मुहावरों को हमें भेजें। आवश्यकता पड़ने पर हम आपसे संपर्क भी कर सकते हैं।")
+                    $(".pages-heading-container>h1").text("अपना योगदान दीजिए")
+                    $("#idiom-contribution").html(`अपना मुहावरा लिखें *<br />
+                <span class="lato-regular small-text">
+                    देवनागरी (हिन्दी) लिपि में या रोमन (अंग्रेजी) लिपि में
+                </span`)
+                    $("#name").text("आपका नाम *")
+                    $("#email").text("आपका इ-मेल पता *")
+                    $("#phone").text("आपका फ़ोन नंबर")
+                    $("#submit").val("मेरा सुझाव भेजें")
                 } else {
-                    $(".pages-content-container>p").html(`Vedic Sanskriti Sansthanam’s mission is to undertake and promote selfless service to our Bharat. So far, we have focused our efforts on mitigating catastrophic human suffering caused by the COVID-19 pandamic.  Our longterm vision is to start activities in education, health and culture arenas, and we are looking for ways to make our contributions.
-                    <br />
-                                    Please note that your donations are used directly for helping the poor and those less fortunate than us and are income tax - deductable.Vedic Sanskriti Sansthanam’ s founder and other staff work purely as volunteers, donating their own time and money on top of your kind contributions.
-                                    <br />
-                                    If you want to participate through your company’ s corporate giving programs or have a question, please contact us.Thanks!
-                                    <br /><br />
-                                    Dr.Pradeep Goel,<br />
-                                    Founder @mantrayoga.org`)
+                    $(".pages-content-container>p").text("You can also be a part of our vision to cultivate the culture of Hindi in India by sending your idiom to use. If needed, we will contact you for further discussion.")
+                    $(".pages-heading-container>h1").text("Your Contribution")
+                    $("#idiom-contribution").html(`Your Idiom *<br />
+                <span class="lato-regular small-text">
+                    In Devanagari (Hindi) script or Roman (English) script 
+                </span`)
+                    $("#name").text("Your name *")
+                    $("#email").text("Your e-mail address*")
+                    $("#phone").text("Your phone number")
+                    $("#submit").val("Submit")
                 }
             });
         });

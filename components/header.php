@@ -5,14 +5,16 @@
         </div>
         <div>
             <ul class="header-menu-container lato-regular">
-                <a class="unstyled-link" href="/vaidic/">
+                <a class="unstyled-link" href="/php-vaidik-sanskriti-sansthaanam/">
                     <li>Home</li>
                 </a>
-                <a class="unstyled-link" href="/vaidic/about-us">
+                <a class="unstyled-link" href="/php-vaidik-sanskriti-sansthaanam/about-us">
                     <li>About Us</li>
                 </a>
-                <li>Contribute</li>
-                <a class="unstyled-link" href="/vaidic/contact-us">
+                <a class="unstyled-link" href="/php-vaidik-sanskriti-sansthaanam/contribute">
+                    <li>Contribute</li>
+                </a>
+                <a class="unstyled-link" href="/php-vaidik-sanskriti-sansthaanam/contact-us">
                     <li>Contact Us</li>
                 </a>
             </ul>
