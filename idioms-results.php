@@ -12,7 +12,10 @@ if (isset($_POST['submit']) && !empty(htmlspecialchars($_POST['search-idioms']))
     }
     $sql = "SELECT * FROM idioms WHERE MATCH (english_muhavra,hindi_muhavra) AGAINST ('" . $searchvalue . "' IN NATURAL LANGUAGE MODE)";
     $result = mysqli_query($conn, $sql);
-    $idioms = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $idioms = array();
+    while ($row = mysqli_fetch_assoc($result)) {
+        $idioms[] = $row;
+    }
     mysqli_free_result($result);
     mysqli_close($conn);
 } else {

@@ -3,7 +3,7 @@
   background-color: #fff;
   box-shadow: 0 3px 6px rgb(0 0 0 /25%);
   z-index: 300;
-  /* position: fixed; */
+  position: fixed;
   top: 0;
 }
 .header-menu-open {
@@ -192,6 +192,7 @@
   align-items: center;
   justify-content: center;
   padding: 20px 5%;
+  margin-top:auto;
 }
 
 .pages-heading-container {
