@@ -7,7 +7,7 @@ $resultidiom = mysqli_query($conn, $sqlidiom);
 $idiom = mysqli_fetch_assoc($resultidiom);
 mysqli_free_result($resultidiom);
 $similaridioms = array();
-$sqlsimilaridioms = "SELECT id,english_muhavra,hindi_muhavra FROM idioms WHERE MATCH (english_muhavra,hindi_muhavra) AGAINST ('" . $idiom['hindi_muhavra'] . "' IN NATURAL LANGUAGE MODE)";
+$sqlsimilaridioms = "SELECT id,english_muhavra,hindi_muhavra FROM idioms WHERE MATCH (english_muhavra,hindi_muhavra) AGAINST ('" . $idiom['hindi_muhavra'] . "' IN NATURAL LANGUAGE MODE) LIMIT 25";
 $resultsimilaridioms = mysqli_query($conn, $sqlsimilaridioms);
 while ($row = mysqli_fetch_assoc($resultsimilaridioms)) {
     $similaridioms[] = $row;
