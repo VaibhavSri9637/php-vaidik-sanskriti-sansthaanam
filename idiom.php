@@ -85,6 +85,7 @@ if ($found) {
     <div class="pages-content-container lato-regular">
         <div id="similar-idioms-container" class="popular-idioms-container"></div>
     </div>
+    <?php include('./components/footer.php') ?>
     <script>
         var similaridioms = <?php echo json_encode($similaridioms); ?>;
 
@@ -99,7 +100,7 @@ if ($found) {
                 $(".pages-more-heading-container h1").text("मिलते-जुलते मुहावरे");
                 var similarhtml = ""
                 for (var i = 0; i < similaridioms.length; i++) {
-                    similarhtml = similarhtml + "<div class='popular-idioms-box lato-regular'><a class='unstyled-link' href='/idiom.php?id=" + similaridioms[i].id + "'>" + similaridioms[i].hindi_muhavra + "</a></div>"
+                    similarhtml = similarhtml + "<div class='popular-idioms-box lato-regular'><a class='unstyled-link' href='/php-vaidik-sanskriti-sansthaanam/idiom.php?id=" + similaridioms[i].id + "'>" + similaridioms[i].hindi_muhavra + "</a></div>"
                 }
                 $("#similar-idioms-container").html(similarhtml);
             } else {
@@ -110,7 +111,7 @@ if ($found) {
                 $(".pages-more-heading-container h1").text("Similar idioms")
                 var similarhtml = ""
                 for (var i = 0; i < similaridioms.length; i++) {
-                    similarhtml = similarhtml + "<div class='popular-idioms-box lato-regular'><a class='unstyled-link' href='/idiom.php?id=" + similaridioms[i].id + "'>" + similaridioms[i].english_muhavra + "</a></div>"
+                    similarhtml = similarhtml + "<div class='popular-idioms-box lato-regular'><a class='unstyled-link' href='/php-vaidik-sanskriti-sansthaanam/idiom.php?id=" + similaridioms[i].id + "'>" + similaridioms[i].english_muhavra + "</a></div>"
                 }
                 $("#similar-idioms-container").html(similarhtml);
             }
@@ -131,7 +132,7 @@ if ($found) {
         $(document).ready(function() {
             var similarhtml = ""
             for (var i = 0; i < similaridioms.length; i++) {
-                similarhtml = similarhtml + "<div class='popular-idioms-box lato-regular'><a class='unstyled-link' href='/idiom.php?id=" + similaridioms[i].id + "'>" + similaridioms[i].hindi_muhavra + "</a></div>"
+                similarhtml = similarhtml + "<div class='popular-idioms-box lato-regular'><a class='unstyled-link' href='/php-vaidik-sanskriti-sansthaanam/idiom.php?id=" + similaridioms[i].id + "'>" + similaridioms[i].hindi_muhavra + "</a></div>"
             }
             $("#similar-idioms-container").html(similarhtml);
         })

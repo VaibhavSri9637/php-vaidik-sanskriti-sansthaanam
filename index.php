@@ -2,17 +2,13 @@
 include('./db_connect.php');
 include('./assets/resources/popularIdioms.php');
 $allidioms = array();
-try {
-    $sqlallidioms = "SELECT id,english_muhavra,hindi_muhavra,`count` FROM idioms";
-    $resultallidioms = mysqli_query($conn, $sqlallidioms);
-    while ($row = mysqli_fetch_assoc($resultallidioms)) {
-        $allidioms[] = $row;
-    }
-    mysqli_free_result($resultallidioms);
-    mysqli_close($conn);
-} catch (Exception $e) {
-    echo 'Message: ' . $e->getMessage();
+$sqlallidioms = "SELECT id,english_muhavra,hindi_muhavra,`count` FROM idioms";
+$resultallidioms = mysqli_query($conn, $sqlallidioms);
+while ($row = mysqli_fetch_assoc($resultallidioms)) {
+    $allidioms[] = $row;
 }
+mysqli_free_result($resultallidioms);
+mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
@@ -83,11 +79,11 @@ try {
         var importantIdioms = <?php echo json_encode($popularIdioms); ?>;
         $(document).ready(function() {
             for (var i = 0; i < importantIdioms.length; i++) {
-                $("#important-idioms-container").append("<div class='popular-idioms-box lato-regular'><a class='unstyled-link' href='/idiom.php?id=" + (allidioms.filter(ai => (ai.hindi_muhavra == importantIdioms[i]))[0] ? allidioms.filter(ai => (ai.hindi_muhavra == importantIdioms[i]))[0].id : "") + "'>" + importantIdioms[i] + "</a></div>")
+                $("#important-idioms-container").append("<div class='popular-idioms-box lato-regular'><a class='unstyled-link' href='/php-vaidik-sanskriti-sansthaanam/idiom.php?id=" + (allidioms.filter(ai => (ai.hindi_muhavra == importantIdioms[i]))[0] ? allidioms.filter(ai => (ai.hindi_muhavra == importantIdioms[i]))[0].id : "") + "'>" + importantIdioms[i] + "</a></div>")
             }
         })
         for (var i = 0; i < popularidioms.length; i++) {
-            $("#famous-idioms-container").append("<a class='unstyled-link' href='/idiom.php?id=" + (popularidioms[i].id) + "'><div class='popular-idioms-box lato-regular'>" + popularidioms[i].hindi_muhavra + "</div></a>")
+            $("#famous-idioms-container").append("<a class='unstyled-link' href='/php-vaidik-sanskriti-sansthaanam/idiom.php?id=" + (popularidioms[i].id) + "'><div class='popular-idioms-box lato-regular'>" + popularidioms[i].hindi_muhavra + "</div></a>")
         }
         $(window).on('scroll', function() {
             if ($(window).scrollTop() >= 200) {
@@ -151,7 +147,7 @@ try {
 
                 var searchsuggestionshtml = ""
                 for (var i = 0; i < allidiomsarray.length; i++) {
-                    searchsuggestionshtml = searchsuggestionshtml + "<a class='unstyled-link' href='/idiom.php?id=" + allidiomsarray[i].id + "'><li>" + allidiomsarray[i].idiom + "</li></a>";
+                    searchsuggestionshtml = searchsuggestionshtml + "<a class='unstyled-link' href='/php-vaidik-sanskriti-sansthaanam/idiom.php?id=" + allidiomsarray[i].id + "'><li>" + allidiomsarray[i].idiom + "</li></a>";
                 }
                 $("#search-suggestions").html(searchsuggestionshtml);
             } else {

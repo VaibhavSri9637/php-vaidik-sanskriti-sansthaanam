@@ -1,22 +1,22 @@
 <div id="header" class="header">
     <div id="sub-header" class="sub-header">
         <div class="header-logo-container">
-            <a class="unstyled-link" href="/">
+            <a class="unstyled-link" href="/php-vaidik-sanskriti-sansthaanam/">
                 <h1 class="muli-regular">वैदिक संस्कृति संस्थानं</h1>
             </a>
         </div>
         <div>
             <ul class="header-menu-container lato-regular">
-                <a class="unstyled-link" href="/">
+                <a class="unstyled-link" href="/php-vaidik-sanskriti-sansthaanam/">
                     <li>Home</li>
                 </a>
-                <a class="unstyled-link" href="/about-us">
+                <a class="unstyled-link" href="/php-vaidik-sanskriti-sansthaanam/about-us">
                     <li>About Us</li>
                 </a>
-                <a class="unstyled-link" href="/contribute">
+                <a class="unstyled-link" href="/php-vaidik-sanskriti-sansthaanam/contribute">
                     <li>Contribute</li>
                 </a>
-                <a class="unstyled-link" href="/contact-us">
+                <a class="unstyled-link" href="/php-vaidik-sanskriti-sansthaanam/contact-us">
                     <li>Contact Us</li>
                 </a>
             </ul>
@@ -27,16 +27,16 @@
     </div>
     <div class="mobile-menu-dropdown" id="mobile-menu-dropdown">
         <ul class="mobile-menu-list-container">
-            <a class="unstyled-link" href="/">
+            <a class="unstyled-link" href="/php-vaidik-sanskriti-sansthaanam/">
                 <li class="mobile-menu-list lato-regular">Home</li>
             </a>
-            <a class="unstyled-link" href="/about-us">
+            <a class="unstyled-link" href="/php-vaidik-sanskriti-sansthaanam/about-us">
                 <li class="mobile-menu-list lato-regular">About Us</li>
             </a>
-            <a class="unstyled-link" href="/contribute">
+            <a class="unstyled-link" href="/php-vaidik-sanskriti-sansthaanam/contribute">
                 <li class="mobile-menu-list lato-regular">Contribute</li>
             </a>
-            <a class="unstyled-link" href="/contact-us">
+            <a class="unstyled-link" href="/php-vaidik-sanskriti-sansthaanam/contact-us">
                 <li class="mobile-menu-list lato-regular">Contact Us</li>
             </a>
         </ul>
