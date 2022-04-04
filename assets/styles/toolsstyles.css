@@ -1,7 +1,8 @@
 /* toggle button */
 
 .switch-container{
-  display:block;
+  display:flex;
+  flex-direction: row;
   text-align:right;
   margin-bottom:20px;
 }

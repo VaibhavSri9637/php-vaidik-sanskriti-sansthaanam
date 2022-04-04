@@ -3,7 +3,7 @@
   background-color: #fff;
   box-shadow: 0 3px 6px rgb(0 0 0 /25%);
   z-index: 300;
-  position: fixed;
+  /* position: fixed; */
   top: 0;
 }
 .header-menu-open {
@@ -15,7 +15,7 @@
   align-items: stretch;
   justify-content: space-between;
   height: 100%;
-  padding: 25px 30px;
+  padding: 15px 30px;
   -webkit-transition: all 0.4s ease;
   -moz-transition: all 0.4s ease;
   -o-transition: all 0.4s ease;
@@ -84,8 +84,8 @@
   cursor: pointer;
 }
 .landing-background {
-  margin-top: 112px;
-  background-image: url("../images/background.png");
+  margin-top: 115px;
+  background-image: url("http://maatrushiksha.org/assets/images/background.png");
   background-size: 100%;
   background-repeat: no-repeat;
   box-shadow: 0 1px 2px rgb(0 0 0 /10%);
@@ -177,6 +177,7 @@
   border-radius: 4px;
   color: var(--primary-color);
   cursor: pointer;
+  font-size:16px;
 }
 .popular-idioms-box:hover {
   animation-name: popular-idioms-box-animation;
@@ -195,10 +196,9 @@
 
 .pages-heading-container {
   background-color: #f6f6f7;
-  margin-top: 112px;
-  height: 100px;
+  margin-top: 115px;
   display: flex;
-  padding: 0 5%;
+  padding: 20px 5%;
   justify-content: space-between;
   align-items: center;
 }
@@ -206,6 +206,10 @@
 .pages-heading-container > h1 {
   background-color: #f6f6f7;
   font-size: 24px;
+  margin:0;
+}
+.pages-more-heading-container{
+  margin-top:0;
 }
 .pages-content-container {
   background-color: white;
@@ -215,6 +219,7 @@
 }
 .pages-content-container p {
   line-height: 1.8;
+  font-size:16px;
 }
 .form-input-heading {
   margin-bottom: 5px;
@@ -266,6 +271,23 @@
 .idiomresulttext {
   font-size: 14px;
 }
+.idiomresultmeaning{
+  width:80%;
+  display:inline-block;
+}
+.audiobutton{
+  display:inline-block;
+  cursor:pointer;
+  background-color:transparent;
+  border:none;
+  outline:none;
+  /* float:right; */
+}
+.meaningcontainer{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 /* Keyframes animation */
 @keyframes input-box-animation {
   from {
@@ -309,14 +331,11 @@
     display: none;
   }
   .landing-background {
-    margin-top: 70px;
-    background-image: url("../images/background-small.png");
+    /* margin-top: 70px; */
+    background-image: url("http://maatrushiksha.org/assets/images/background-small.png");
   }
   .landing-mainsubsection {
     padding: 6% 0;
-  }
-  .pages-heading-container {
-    margin-top: 70px;
   }
 }
 @media all and (max-width: 500px) {
@@ -333,11 +352,41 @@
     padding: 0 15px;
     top: -1px;
   }
-  .header-logo-container > h1 {
+  .header-logo-container h1 {
     font-size: 24px;
   }
   .landing-mainsubsection {
     padding: 4% 0;
+  }
+  .popular-idioms-box{
+    font-size:14px;
+    padding:5px;
+    margin:3px;
+  }
+  .content-container{
+    padding:2.5% 0;
+  }
+  .content-section{
+    padding:10px;
+  }
+  .subsectionheading{
+    font-size:20px;
+  }
+  .pages-heading-container > h1{
+    font-size:18px;
+  }
+  .maintext,.pages-content-container p{
+    font-size:14px;
+  }
+  .pages-content-container{
+    padding:3% 10px;
+  }
+  .pages-heading-container{
+    padding:10px;
+    margin-top:94px;
+  }
+  .pages-more-heading-container{
+    margin-top:0;
   }
 }
 @media all and (max-width: 400px) {

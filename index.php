@@ -1,14 +1,18 @@
 <?php
-$conn = mysqli_connect('localhost', 'root', 'nf16Mysql', 'vaidic_sanskriti_sansthaanam');
-if (!$conn) {
-    echo 'Connection error: ' . mysqli_connect_error();
+include('./db_connect.php');
+include('./assets/resources/popularIdioms.php');
+$allidioms = array();
+try {
+    $sqlallidioms = "SELECT id,english_muhavra,hindi_muhavra,`count` FROM idioms";
+    $resultallidioms = mysqli_query($conn, $sqlallidioms);
+    while ($row = mysqli_fetch_assoc($resultallidioms)) {
+        $allidioms[] = $row;
+    }
+    mysqli_free_result($resultallidioms);
+    mysqli_close($conn);
+} catch (Exception $e) {
+    echo 'Message: ' . $e->getMessage();
 }
-
-$sqlallidioms = "SELECT english_muhavra,hindi_muhavra FROM idioms";
-$resultallidioms = mysqli_query($conn, $sqlallidioms);
-$allidioms = mysqli_fetch_all($resultallidioms, MYSQLI_ASSOC);
-
-
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +24,10 @@ $allidioms = mysqli_fetch_all($resultallidioms, MYSQLI_ASSOC);
     <link rel="stylesheet" href="./assets/styles/styles.css" />
     <link rel="stylesheet" href="./assets/styles/toolsstyles.css" />
     <link rel="stylesheet" href="./assets/styles/globalstyles.css" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.ico">
+    <link rel="icon" type="image/png" sizes="152x152" href="./favicon-152.ico">
+    <link rel="icon" type="image/png" sizes="192x192" href="./favicon-192.ico">
 
 </head>
 
@@ -68,19 +76,19 @@ $allidioms = mysqli_fetch_all($resultallidioms, MYSQLI_ASSOC);
     </div>
     <?php include('./components/footer.php') ?>
     <script>
-        fetch("./assets/resources/popularidioms.json")
-            .then(response => response.json())
-            .then(data => {
-                $(document).ready(function() {
-                    for (var i = 0; i < data.length; i++) {
-                        $("#important-idioms-container").append("<div class='popular-idioms-box lato-regular'>" + data[i] + "</div>")
-                        $("#famous-idioms-container").append("<div class='popular-idioms-box lato-regular'>" + data[i] + "</div>")
-                    }
-                })
-            })
-            .catch(error => console.log(error));
-    </script>
-    <script>
+        var allidioms = <?php echo json_encode($allidioms); ?>;
+        var popularidioms = allidioms.sort(function(a, b) {
+            return b.count - a.count
+        }).slice(0, 20);
+        var importantIdioms = <?php echo json_encode($popularIdioms); ?>;
+        $(document).ready(function() {
+            for (var i = 0; i < importantIdioms.length; i++) {
+                $("#important-idioms-container").append("<div class='popular-idioms-box lato-regular'><a class='unstyled-link' href='/idiom.php?id=" + (allidioms.filter(ai => (ai.hindi_muhavra == importantIdioms[i]))[0] ? allidioms.filter(ai => (ai.hindi_muhavra == importantIdioms[i]))[0].id : "") + "'>" + importantIdioms[i] + "</a></div>")
+            }
+        })
+        for (var i = 0; i < popularidioms.length; i++) {
+            $("#famous-idioms-container").append("<a class='unstyled-link' href='/idiom.php?id=" + (popularidioms[i].id) + "'><div class='popular-idioms-box lato-regular'>" + popularidioms[i].hindi_muhavra + "</div></a>")
+        }
         $(window).on('scroll', function() {
             if ($(window).scrollTop() >= 200) {
                 $("#sub-header").addClass("header-animation");
@@ -89,23 +97,6 @@ $allidioms = mysqli_fetch_all($resultallidioms, MYSQLI_ASSOC);
                 $("#sub-header").removeClass("header-animation");
             }
         });
-    </script>
-    <script>
-        $(document).ready(function() {
-            $("#mobile-menu-icon").click(function() {
-                if ($(".mobile-menu-icon-bar").hasClass("fa-times")) {
-                    $(".mobile-menu-icon-bar").removeClass("fa-times").addClass("fa-bars")
-                    $("#mobile-menu-dropdown").slideUp(300)
-                    $("#header").removeClass("header-menu-open");
-                } else if ($(".mobile-menu-icon-bar").hasClass("fa-bars")) {
-                    $("#mobile-menu-dropdown").slideDown(300)
-                    $("#header").addClass("header-menu-open");
-                    $(".mobile-menu-icon-bar").removeClass("fa-bars").addClass("fa-times")
-                }
-            })
-        })
-    </script>
-    <script>
         $(document).ready(function() {
             $("#vision-switch").click(function() {
                 if ($("#vision-switch").is(':checked')) {
@@ -117,29 +108,34 @@ $allidioms = mysqli_fetch_all($resultallidioms, MYSQLI_ASSOC);
                 }
             });
         });
-    </script>
-    <script>
+
         function changeidiom() {
             var searchvalue = document.getElementById("search-idioms").value.trim();
             if (searchvalue && searchvalue.length > 3) {
-                var allidioms = <?php echo json_encode($allidioms); ?>;
                 if ((searchvalue[0].charCodeAt(0) >= 65 && searchvalue[0].charCodeAt(0) <= 90) || (searchvalue[0].charCodeAt(0) >= 97 && searchvalue[0].charCodeAt(0) <= 122)) {
                     allidioms = allidioms.map(i => {
-                        return i.english_muhavra
+                        return {
+                            id: i.id,
+                            idiom: i.english_muhavra
+                        }
                     });
                 } else {
                     allidioms = allidioms.map(i => {
-                        return i.hindi_muhavra
+                        return {
+                            id: i.id,
+                            idiom: i.hindi_muhavra
+                        }
                     });
                 }
                 // console.log("allidioms", allidioms)
                 var allidiomsarray = [];
                 var re = new RegExp(searchvalue, "gi");
                 for (var i = 0; i < allidioms.length; i++) {
-                    var score = allidioms[i].match(re) ? allidioms[i].match(re).length : 0;
+                    var score = allidioms[i].idiom.match(re) ? allidioms[i].idiom.match(re).length : 0;
                     if (score > 0) {
                         allidiomsarray.push({
-                            idiom: allidioms[i],
+                            id: allidioms[i].id,
+                            idiom: allidioms[i].idiom,
                             score: score
                         });
                     }
@@ -155,7 +151,7 @@ $allidioms = mysqli_fetch_all($resultallidioms, MYSQLI_ASSOC);
 
                 var searchsuggestionshtml = ""
                 for (var i = 0; i < allidiomsarray.length; i++) {
-                    searchsuggestionshtml = searchsuggestionshtml + "<li>" + allidiomsarray[i].idiom + "</li>";
+                    searchsuggestionshtml = searchsuggestionshtml + "<a class='unstyled-link' href='/idiom.php?id=" + allidiomsarray[i].id + "'><li>" + allidiomsarray[i].idiom + "</li></a>";
                 }
                 $("#search-suggestions").html(searchsuggestionshtml);
             } else {

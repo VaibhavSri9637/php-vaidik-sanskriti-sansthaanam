@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="../assets/styles/styles.css" />
     <link rel="stylesheet" href="../assets/styles/toolsstyles.css" />
     <link rel="stylesheet" href="../assets/styles/globalstyles.css" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.ico">
+    <link rel="icon" type="image/png" sizes="152x152" href="../favicon-152.ico">
+    <link rel="icon" type="image/png" sizes="192x192" href="../favicon-192.ico">
 </head>
 
 <body>
