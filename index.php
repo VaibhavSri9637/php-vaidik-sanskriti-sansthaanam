@@ -44,7 +44,7 @@ mysqli_close($conn);
     </div>
     <div class="">
         <div class="vision-section content-section">
-            <div class="switch-container">
+            <div class="switch-container" style="float:right;">
                 <span class="switch-options lato-regular">English</span>
                 <label class="switch">
                     <input id="vision-switch" type="checkbox" checked>
