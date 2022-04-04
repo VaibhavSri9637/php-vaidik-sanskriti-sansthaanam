@@ -42,7 +42,7 @@
 
         </p>
     </div>
-    <?php include('./components/footer.php') ?>
+    <?php include('../components/footer.php') ?>
     <script>
         $(document).ready(function() {
             $("#vision-switch").click(function() {

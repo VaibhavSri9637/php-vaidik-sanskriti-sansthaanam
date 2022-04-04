@@ -4,8 +4,10 @@ $loggedin = false;
 $contributionresponse = "";
 $sqlallidioms = "SELECT id,english_muhavra,hindi_muhavra FROM idioms";
 $resultallidioms = mysqli_query($conn, $sqlallidioms);
-$allidioms = mysqli_fetch_all($resultallidioms, MYSQLI_ASSOC);
-
+$allidioms = array();
+while ($row = mysqli_fetch_assoc($resultallidioms)) {
+    $allidioms[] = $row;
+}
 if (isset($_POST["submit"])) {
     global $loggedin;
     $email = mysqli_real_escape_string($conn, htmlspecialchars($_POST["email"]));

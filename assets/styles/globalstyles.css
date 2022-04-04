@@ -12,6 +12,9 @@ body {
   vertical-align: baseline;
   background: transparent;
   clear: both;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
 }
 body * {
   box-sizing: inherit;

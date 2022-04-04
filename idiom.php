@@ -4,11 +4,14 @@ $idiomid = htmlspecialchars($_GET["id"]);
 
 $sqlidiom = "SELECT * FROM idioms WHERE id='" . $idiomid . "'";
 $resultidiom = mysqli_query($conn, $sqlidiom);
-$idiom = mysqli_fetch_all($resultidiom, MYSQLI_ASSOC)[0];
+$idiom = mysqli_fetch_assoc($resultidiom);
 mysqli_free_result($resultidiom);
+$similaridioms = array();
 $sqlsimilaridioms = "SELECT id,english_muhavra,hindi_muhavra FROM idioms WHERE MATCH (english_muhavra,hindi_muhavra) AGAINST ('" . $idiom['hindi_muhavra'] . "' IN NATURAL LANGUAGE MODE)";
 $resultsimilaridioms = mysqli_query($conn, $sqlsimilaridioms);
-$similaridioms = mysqli_fetch_all($resultsimilaridioms, MYSQLI_ASSOC);
+while ($row = mysqli_fetch_assoc($resultsimilaridioms)) {
+    $similaridioms[] = $row;
+}
 mysqli_free_result($resultsimilaridioms);
 
 $sqlupdatecount = 'UPDATE idioms SET count = count+1 WHERE id=' . $idiomid;
