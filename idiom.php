@@ -12,6 +12,7 @@ $similaridioms = array();
 while ($row = mysqli_fetch_assoc($resultsimilaridioms)) {
     $similaridioms[] = $row;
 }
+print_r($similaridioms);
 mysqli_free_result($resultsimilaridioms);
 
 $sqlupdatecount = 'UPDATE idioms SET count = count+1 WHERE id=' . $idiomid;
