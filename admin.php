@@ -136,6 +136,8 @@ if (isset($_POST["delete-idiom"])) {
             </div>
         <?php } ?>
     </div>
+    <?php include('./components/footer.php') ?>
+
     <script>
         var allidioms = <?php echo json_encode($allidioms); ?>;
         console.log("allidioms", allidioms)

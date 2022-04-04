@@ -85,6 +85,8 @@ if ($found) {
     <div class="pages-content-container lato-regular">
         <div id="similar-idioms-container" class="popular-idioms-container"></div>
     </div>
+    <?php include('./components/footer.php') ?>
+
     <script>
         var similaridioms = <?php echo json_encode($similaridioms); ?>;
 

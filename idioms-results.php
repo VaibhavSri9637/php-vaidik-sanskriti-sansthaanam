@@ -76,6 +76,7 @@ if (isset($_POST['submit']) && !empty(htmlspecialchars($_POST['search-idioms']))
             </div>
         <?php } ?>
     </div>
+    <?php include('./components/footer.php') ?>
     <script>
         $(document).ready(function() {
             var language = '<?php echo $language; ?>';
