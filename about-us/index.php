@@ -59,7 +59,7 @@
                     शुभम अस्तु!<br /> 
                     फाल्गुन शुक्ल पक्ष नवमी संवत २०७८; ११ मार्च २०२२ <br />नोएडा, भारत 
                     `)
-                    $("#acknowledgement-heading>h1").text("Acknowledgemnt")
+                    $("#acknowledgement-heading>h1").text("आभार")
                 } else {
                     $("#about-content>p").text("“Laato ke bhut haatho se nahin mante” is the idiom many of us will remember from our childhood! Do we forget the fear and shivering that it gave us then when it was uttered by our mothers while giving us a good thrash on our back with a stick! Well, such muhavare, name of idioms in Hindi, are perhaps the greatest asset a civilization has in its vocabulary.  In just a few words, they convey a message richer and deeper than even a picture! A picture lacks the feelings-anger, fear, joy, desperation that a muhavare vividly captures in its words! Moreover, the words in it not only has a message, often profound, but also throws vividly in our minds a picture of the prevailing culture of its time. For instance, see adh bhari gagri chalki jaye-a half-filled pot always makes noise-brings an image in our minds of women carrying water pots on their heads while engaged in deep conversations on their way home! In the so-called modern civilization of indoor plumbing and instant water supply, this not-so-old culture would be soon forgotten were it not for this muhavare! What about aam ke aam gutliyo ke daam-a picture of a mango is thrown in our minds intense enough to tantalize our taste buds while teaching an important business principle! On turning sixty and embracing Vanprastha, the third stage of Vedic social life where one is enjoined to give back to one’s society, I am in the process of starting activities with that scriptural ethos in my mind. Preserving and promoting our vast linguistic cultural heritage of muhavare for the modern generation and for the future compelled me to initiate this project. The electronic media of the modern age is the perfect tool for this and so this website. It is an initiative of Vedic Sanskriti Sansthanam (www.mantrayoga.org). While we begin with Hindi, muhavare from other Indian languages would soon be added to this portal. Users would be able to add theirs to this portal in the language of their choice. I request you to use the information contained in this website-in your conversations, writing and by passing on to your next generation. You are always welcome to contribute in any way you are able to!")
                     $("#about-heading>h1").text("About Us")
@@ -68,7 +68,7 @@
                                     for their tireless efforts.<br />Last but not the least, women in our lives are the spirit that gives us inspiration and strength.Words are not sufficient today to thank my dear mother and my sweet wife without whom nothing would have materialized!<br />
                                     Shubham astu!<br />
                                     Phagun Shukla Paksha Navmi Samvata 2078; 11 March 2022<br /> Noida, Bharat`)
-                    $("#acknowledgement-heading>h1").text("Acknowledgemnt")
+                    $("#acknowledgement-heading>h1").text("Acknowledgement")
                 }
             });
         });
