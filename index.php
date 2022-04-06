@@ -109,14 +109,14 @@ mysqli_close($conn);
             var searchvalue = document.getElementById("search-idioms").value.trim();
             if (searchvalue && searchvalue.length > 3) {
                 if ((searchvalue[0].charCodeAt(0) >= 65 && searchvalue[0].charCodeAt(0) <= 90) || (searchvalue[0].charCodeAt(0) >= 97 && searchvalue[0].charCodeAt(0) <= 122)) {
-                    allidioms = allidioms.map(i => {
+                    var relevantallidioms = allidioms.map(i => {
                         return {
                             id: i.id,
                             idiom: i.english_muhavra
                         }
                     });
                 } else {
-                    allidioms = allidioms.map(i => {
+                    var relevantallidioms = allidioms.map(i => {
                         return {
                             id: i.id,
                             idiom: i.hindi_muhavra
@@ -126,28 +126,28 @@ mysqli_close($conn);
                 // console.log("allidioms", allidioms)
                 var allidiomsarray = [];
                 var re = new RegExp(searchvalue, "gi");
-                for (var i = 0; i < allidioms.length; i++) {
-                    var score = allidioms[i].idiom.match(re) ? allidioms[i].idiom.match(re).length : 0;
+                for (var i = 0; i < relevantallidioms.length; i++) {
+                    var score = relevantallidioms[i].idiom.match(re) ? relevantallidioms[i].idiom.match(re).length : 0;
                     if (score > 0) {
                         allidiomsarray.push({
-                            id: allidioms[i].id,
-                            idiom: allidioms[i].idiom,
+                            id: relevantallidioms[i].id,
+                            idiom: relevantallidioms[i].idiom,
                             score: score
                         });
                     }
                 }
-                allidiomsarray = allidiomsarray.sort(function(a, b) {
+                var relevantallidiomsarray = allidiomsarray.sort(function(a, b) {
                     return (b.score - a.score);
                 }).slice(0, 10);
-                if (allidiomsarray.length > 0) {
+                if (relevantallidiomsarray.length > 0) {
                     $(".idiomssuggestions").css("display", "block")
                 } else {
                     $(".idiomssuggestions").css("display", "none")
                 }
 
                 var searchsuggestionshtml = ""
-                for (var i = 0; i < allidiomsarray.length; i++) {
-                    searchsuggestionshtml = searchsuggestionshtml + "<a class='unstyled-link' href='/php-vaidik-sanskriti-sansthaanam/idiom.php?id=" + allidiomsarray[i].id + "'><li>" + allidiomsarray[i].idiom + "</li></a>";
+                for (var i = 0; i < relevantallidiomsarray.length; i++) {
+                    searchsuggestionshtml = searchsuggestionshtml + "<a class='unstyled-link' href='/php-vaidik-sanskriti-sansthaanam/idiom.php?id=" + relevantallidiomsarray[i].id + "'><li>" + relevantallidiomsarray[i].idiom + "</li></a>";
                 }
                 $("#search-suggestions").html(searchsuggestionshtml);
             } else {
