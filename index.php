@@ -15,7 +15,10 @@ mysqli_close($conn);
 <html lang="en">
 
 <head>
-    <title>वैदिक संस्कृति संस्थानं</title>
+    <title>मात्रुशिक्षा - Apne priya muhaavro ke arth dhoondhe</title>
+    <meta name="description" content="Apne priya muhaavro ke arth dhoondhe. Pramukh Hindi muhaavro ka vaakya me upyog, muhaavro ki uchchaaran or arth dhoondhe.">
+    <link rel="canonical" href="https://www.maatrushiksha.org" />
+    <meta name=”robots” content="index, follow">
     <?php include('./components/head.php') ?>
     <link rel="stylesheet" href="./assets/styles/styles.css" />
     <link rel="stylesheet" href="./assets/styles/toolsstyles.css" />

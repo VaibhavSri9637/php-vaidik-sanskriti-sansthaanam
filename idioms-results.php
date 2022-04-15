@@ -26,7 +26,10 @@ if (isset($_POST['submit']) && !empty(htmlspecialchars($_POST['search-idioms']))
 <html lang="en">
 
 <head>
-    <title></title>
+    <title><?php echo $searchvalue ?> se jude hue muhaavro ke arth</title>
+    <meta name="description" content="<?php echo $searchvalue ?> se jude hue muhaavro ke baar me jaaniye. Pramukh Hindi muhaavro ka vaakya me upyog, muhaavro ki uchchaaran or arth dhoondhe.">
+    <link rel="canonical" href="https://www.maatrushiksha.org/idiom-results.php" />
+    <meta name=”robots” content="index, follow">
     <?php include('./components/head.php') ?>
     <link rel="stylesheet" href="./assets/styles/styles.css" />
     <link rel="stylesheet" href="./assets/styles/toolsstyles.css" />

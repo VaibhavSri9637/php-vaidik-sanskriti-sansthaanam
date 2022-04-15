@@ -35,7 +35,10 @@ if ($found) {
 <html lang="en">
 
 <head>
-    <title></title>
+    <title><?php echo $idiom["english_muhavra"] ?> ka arth</title>
+    <meta name="description" content="<?php echo $idiom["english_muhavra"] ?> ka arth evam uchchaaran dekhe. Pramukh Hindi muhaavro ka vaakya me upyog, muhaavro ki uchchaaran or arth dhoondhe.">
+    <link rel="canonical" href="https://www.maatrushiksha.org/idiom.php?id=<?php echo $$idiomid ?>" />
+    <meta name=”robots” content="index, follow">
     <?php include('./components/head.php') ?>
     <link rel="stylesheet" href="./assets/styles/styles.css" />
     <link rel="stylesheet" href="./assets/styles/toolsstyles.css" />

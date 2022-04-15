@@ -2,7 +2,10 @@
 <html lang="en">
 
 <head>
-    <title>Contact us - वैदिक संस्कृति संस्थानं</title>
+    <title>मात्रुशिक्षा - Contact Us</title>
+    <meta name="description" content="Humse Hindi sanskriti ke baare me charcha karne ke lie sampark kare.">
+    <link rel="canonical" href="https://www.maatrushiksha.org/contact" />
+    <meta name=”robots” content="index, follow">
     <?php include('../components/head.php') ?>
     <link rel="stylesheet" href="../assets/styles/styles.css" />
     <link rel="stylesheet" href="../assets/styles/toolsstyles.css" />
