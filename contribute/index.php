@@ -27,7 +27,10 @@ if (isset($_POST["submit"])) {
 <html lang="en">
 
 <head>
-    <title>Contribute - वैदिक संस्कृति संस्थानं</title>
+    <title>मात्रुशिक्षा - apne muhaavre ke saath apna yogdaan de</title>
+    <meta name="description" content="Hume apna muhaavra bhej ke apna yogdaan de. Aapka muhaavra hum apni site me daalenge. Pramukh Hindi muhaavro ka vaakya me upyog, muhaavro ki uchchaaran or arth dhoondhe.">
+    <link rel="canonical" href="https://www.maatrushiksha.org/contribute" />
+    <meta name=”robots” content="index, follow">
     <?php include('../components/head.php') ?>
     <link rel="stylesheet" href="../assets/styles/styles.css" />
     <link rel="stylesheet" href="../assets/styles/toolsstyles.css" />

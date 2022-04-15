@@ -2,7 +2,10 @@
 <html lang="en">
 
 <head>
-    <title>About us - वैदिक संस्कृति संस्थानं</title>
+    <title>About Us - मात्रुशिक्षा</title>
+    <meta name="description" content="Maatrushiksha ke baare me jaaniye. Hindi sanskriti ko badhaane ke hamaare uddeshya ko jaaniye or hume apna sayhog dijie.">
+    <link rel="canonical" href="https://www.maatrushiksha.org/about" />
+    <meta name=”robots” content="index, follow">
     <?php include('../components/head.php') ?>
     <link rel="stylesheet" href="../assets/styles/styles.css" />
     <link rel="stylesheet" href="../assets/styles/toolsstyles.css" />

@@ -2,7 +2,7 @@
     <div id="sub-header" class="sub-header">
         <div class="header-logo-container">
             <a class="unstyled-link" href="/">
-                <h1 class="muli-regular">वैदिक संस्कृति संस्थानं</h1>
+                <h1 class="muli-regular">मात्रुशिक्षा</h1>
                 <p class="lato-regular" style="margin:0;text-align:left;font-size:14px;">स्वार्थ नहीं, परमार्थ</p>
             </a>
         </div>
