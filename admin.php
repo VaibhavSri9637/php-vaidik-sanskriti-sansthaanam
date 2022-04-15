@@ -19,7 +19,7 @@ if (isset($_POST["submit"])) {
     global $loggedin;
     $email = mysqli_real_escape_string($conn, htmlspecialchars($_POST["email"]));
     $password = mysqli_real_escape_string($conn, htmlspecialchars($_POST["password"]));
-    if ($email == "vaibhavsri9637@gmail.com" && $password == "1234") {
+    if ($email == "drpradeepgoel@mantrayoga.org" && $password == "Sanatan@108Mala") {
         $loggedin = true;
     }
 }

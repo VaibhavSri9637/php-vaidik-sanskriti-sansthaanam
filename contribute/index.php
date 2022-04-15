@@ -57,7 +57,7 @@ if (isset($_POST["submit"])) {
         </p>
         <form method="POST" action="index.php" style="display:block;">
             <p class="lato-bold" id="idiom-contribution">
-                अपना मुहावरा लिखें *<br />
+                अपना मुहावरा टाइप करें *<br />
                 <span class="lato-regular small-text">
                     देवनागरी (हिन्दी) लिपि में या रोमन (अंग्रेजी) लिपि में
                 </span>
@@ -79,7 +79,7 @@ if (isset($_POST["submit"])) {
                 आपका फ़ोन नंबर
             </p>
             <input type="text" class="input-box lato-regular" name="phone">
-            <input type="submit" name="submit" class="submit-button lato-regular" value="मेरा सुझाव भेजें" id="submit" />
+            <input type="submit" name="submit" class="submit-button lato-regular" value="अपना सुझाव भेजें" id="submit" />
             <?php
             if ($contributionresponse && strlen($contributionresponse) > 0) {
                 echo '<p style="color:' . ($contributionresponse == "Congratulations! Your idiom has been submitted." ? 'green' : 'red') . ';font-family:lato;">' . $contributionresponse . '</p>';
@@ -93,14 +93,14 @@ if (isset($_POST["submit"])) {
                 if ($("#vision-switch").is(':checked')) {
                     $(".pages-content-container>p").text("आप भी हमारे इस प्रयास में भागीदार बने और अपने मुहावरों को हमें भेजें। आवश्यकता पड़ने पर हम आपसे संपर्क भी कर सकते हैं।")
                     $(".pages-heading-container>h1").text("अपना योगदान दीजिए")
-                    $("#idiom-contribution").html(`अपना मुहावरा लिखें *<br />
+                    $("#idiom-contribution").html(`अपना मुहावरा टाइप करें *<br />
                 <span class="lato-regular small-text">
                     देवनागरी (हिन्दी) लिपि में या रोमन (अंग्रेजी) लिपि में
                 </span`)
                     $("#name").text("आपका नाम *")
                     $("#email").text("आपका इ-मेल पता *")
                     $("#phone").text("आपका फ़ोन नंबर")
-                    $("#submit").val("मेरा सुझाव भेजें")
+                    $("#submit").val("अपना सुझाव भेजें")
                 } else {
                     $(".pages-content-container>p").text("You can also be a part of our vision to cultivate the culture of Hindi in India by sending your idiom to use. If needed, we will contact you for further discussion.")
                     $(".pages-heading-container>h1").text("Your Contribution")
